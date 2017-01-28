@@ -1,0 +1,53 @@
+
+Motivation
+why? there are problems with https certificates
+what? understand what's happening 
+how? get your hands dirty in command line
+beginner level
+
+Theory
+* bare minimum
+* public key cryptography
+  * more security by convenience (private keys don't need to be moved)
+  * do not solve the key distribution problem completely
+* certificates + PKI
+  * address "Is this the right public key?" question
+  * certificate binds public key to other information
+    * attested by certificate authority
+      * which could be further attested by higher-level CA
+      * but you must ultimately trust some in the end
+* real world steps in
+
+
+Practice
+ * typicaly preinstalled in the system/browser
+
+Building blocks
+* get cert from server
+* view certificate
+* verify certificate
+
+Problems
+* types
+  * cert vs. reality (~attributes)
+    * problems with hostname
+      * not matching server
+      * CN not present in SAN
+      * SNI
+    * validity
+    * small key, md4
+    * key usage
+    * depth (kinda trust problem, too)
+    * key identifiers not matching
+  * cert vs. trust (~chain)
+    * self-signed certificate
+    * root ca not trusted
+    * missing intermediary certificate
+    * certificate does not match key
+    * server cert is signed by different CA (broaden scenario 2)
+
+
+
+Conclusion
+* things are MUCH more complicated in practice
+* other problems (cipher suites)
